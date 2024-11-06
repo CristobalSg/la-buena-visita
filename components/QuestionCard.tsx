@@ -33,7 +33,6 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
   additionalImages,
 }) => {
   const listItems = [
-    { icon: <HeartOutlined />, text: 'Ejemplo de actividad para el paciente' },
     { icon: <HeartOutlined />, text: '¿Cuál es la fecha de hoy? (Día-mes-año)' },
     { icon: <HeartOutlined />, text: '¿En qué día de la semana estamos?' },
     { icon: <HeartOutlined />, text: '¿En dónde estamos? (edificio, ciudad y comuna)' },
