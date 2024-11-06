@@ -72,9 +72,9 @@ body {
   .img-caplc {
     height: 200px;
   }
-    .header-title {
-        display: none; /* Ocultar en pantallas pequeñas */
-    }
+    /* .header-title {
+        display: none; 
+    } */
   .logo {
     font-size: 1.2em;
   }

@@ -4,9 +4,9 @@ import { Row, Col, Image, Typography } from 'antd';
 const { Paragraph } = Typography;
 
 interface ConversationItemProps {
-  imageSrc: string;
+  imageSrc?: string;
   text: string;
-  reverse?: boolean; // Optional prop to reverse the order of image and text
+  reverse?: boolean; // Prop opcional para invertir el orden de la imagen y el texto
 }
 
 // Estilos generales
@@ -29,35 +29,39 @@ const ConversationItem: React.FC<ConversationItemProps> = ({ imageSrc, text, rev
       {reverse ? (
         <>
           <Col xs={18} sm={18} md={18} lg={18} xl={18} style={columnStyle}>
-            <Paragraph style={{ display: 'flex', justifyContent: 'flex-end', fontSize: '1.25em', fontFamily: 'Montserrat, sans-serif' }}>
+            <Paragraph style={{ display: 'flex', justifyContent: 'flex-end', fontSize: '1.25em', fontFamily: 'Montserrat, sans-serif' , whiteSpace: 'pre-line'}}>
               {text}
             </Paragraph>
           </Col>
-          <Col xs={6} sm={6} md={6} lg={6} xl={6} style={{ display: 'flex', justifyContent: 'flex-start', ...columnStyle }}>
-            <div style={{ height: '100%', display: 'flex', alignItems: 'center' }}>
-              <Image
-                width="80px"
-                height="80px"
-                style={{ objectFit: 'contain' }}
-                src={imageSrc}
-              />
-            </div>
-          </Col>
+          {imageSrc && (
+            <Col xs={6} sm={6} md={6} lg={6} xl={6} style={{ display: 'flex', justifyContent: 'flex-start', ...columnStyle }}>
+              <div style={{ height: '100%', display: 'flex', alignItems: 'center' }}>
+                <Image
+                  width="80px"
+                  height="80px"
+                  style={{ objectFit: 'contain' }}
+                  src={imageSrc}
+                />
+              </div>
+            </Col>
+          )}
         </>
       ) : (
         <>
-          <Col xs={6} sm={6} md={6} lg={6} xl={6} style={{ display: 'flex', justifyContent: 'flex-end', ...columnStyle }}>
-            <div style={{ height: '100%', display: 'flex', alignItems: 'center' }}>
-              <Image
-                width="80px"
-                height="80px"
-                style={{ objectFit: 'contain' }}
-                src={imageSrc}
-              />
-            </div>
-          </Col>
+          {imageSrc && (
+            <Col xs={6} sm={6} md={6} lg={6} xl={6} style={{ display: 'flex', justifyContent: 'flex-end', ...columnStyle }}>
+              <div style={{ height: '100%', display: 'flex', alignItems: 'center' }}>
+                <Image
+                  width="80px"
+                  height="80px"
+                  style={{ objectFit: 'contain' }}
+                  src={imageSrc}
+                />
+              </div>
+            </Col>
+          )}
           <Col xs={18} sm={18} md={18} lg={18} xl={18} style={columnStyle}>
-            <Paragraph style={{ fontSize: '1.25em', fontFamily: 'Montserrat, sans-serif'}}>
+            <Paragraph style={{ fontSize: '1.25em', fontFamily: 'Montserrat, sans-serif', whiteSpace: 'pre-line'}}>
               {text}
             </Paragraph>
           </Col>

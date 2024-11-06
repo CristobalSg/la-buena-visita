@@ -38,7 +38,10 @@ const Home: NextPage = () => {
         <Col xs={24} md={16}>
           <Card>
             <Paragraph style={{ fontSize: '1.25em', fontFamily: 'Montserrat, sans-serif'}}>
-              Esta página es creada con la finalidad de entregar información que guíe a los familiares de los pacientes hospitalizados, en relación a como realizar, una visita enriquecedora para el proceso de rehabilitación del paciente.
+              Esta página está creada con la finalidad de entregar información que guie a los 
+              familiares de los pacientes hospitalizados, en relación a como realizar, una  visita
+               enriquecedora para el proceso de rehabilitación, y así mismo alcanzar un optimo 
+               potencial en las habilidades necesarias para participar de las actividades de la vida diaria. 
             </Paragraph>
             {/* Contenedor flexible para el botón */}
             <div style={{ display: 'flex', justifyContent: 'flex-end' }}>

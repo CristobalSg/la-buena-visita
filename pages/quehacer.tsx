@@ -6,6 +6,7 @@ import DynamicTitle  from "../components/TitleWithLinesStyle"
 import ConversationItem from '../components/ConversationItem';
 import CardGrid from '../components/CardGrid';
 import NavigationButtons from "@/components/NavigationButtons";
+import DynamicSubtitle from "@/components/DynamicSubtitle";
 
 const { Title, Text, Paragraph } = Typography;
 
@@ -32,7 +33,7 @@ const cardData = [
     background: "#e6dcc3",
     title: "Posiciona la cama",
     description:
-      "La cama cuenta con botones a los lados, a la altura de la cabecera, los que te permitirán posicionar la cama de manera que el paciente quede parcialmente reclinado o sentado (según indicación médica).",
+      "La cama, cuenta con botones a los lados y un medidor de los grados de inclinación, a la altura de la cabecera,  los que te permitirán posicionar la cama de manera que el paciente quede parcialmente reclinado o sentado. (según indicación medica) posición ideal: entre 30- 45 grados.",
     imgSrc: "https://media-public.canva.com/wEhQo/MAFsYCwEhQo/1/tl.png",
   },
 ];
@@ -83,18 +84,26 @@ export default function Component() {
     <>
         <DynamicTitle
             mainTitle="¿Qué hacer con tu familiar durante la visita en el hospital?"
-            subtitle="Manejo ambiental"
-            paragraphText="Modificar el ambiente en el cual se encuentra el paciente, ayudará a que su nivel de conciencia sea óptimo, además, ayudará al usuario a orientarse en relación a si es de día o de noche."
+        />
+
+        <DynamicSubtitle subtitle="Se recomienda hacer:" />
+        <DynamicSubtitle subtitle="Un manejo ambiental."/>
+        <DynamicTitle
+            subtitle="¿Qué es el manejo ambiental?"
+            paragraphText="El manejo ambiental es un conjunto de modificaciones en el ambiente en el cual se encuentra el paciente, lo cual ayudará a que su nivel de conciencia sea optimo, además,  ayudará al usuario a orientarse por ejemplo, en relación a si es de día o de noche."
         />
 
         {/* <Title style={{textAlign: "center", marginBottom: "50px", fontFamily: 'Montserrat, sans-serif'}}>¿Cómo hacerlo?</Title> */}
+        <DynamicSubtitle subtitle="¿Cómo hacerlo?" centered={true}/>
 
         <CardGrid cardData={cardData} />
 
         <Divider style={{marginBlock: "4rem"}}></Divider>
 
-        <DynamicTitle subtitle="Terapia de orientación a la realidad"
-        paragraphText="Técnicas mediante las cuales la persona tomará conciencia de su situación en el tiempo, espacio 
+        
+        <DynamicSubtitle subtitle="Terapia de orientación a la realidad"/>
+        <DynamicTitle subtitle="¿Qué es?"
+        paragraphText="Son técnicas mediante las cuales la persona tomará conciencia de su situación en el tiempo, espacio 
             y persona. proporcionando a la persona una mejor comprensión de sí mismo y del mundo que le rodea."/>
         
         {/* <div className="space-y-1" style={{textAlign: "center", paddingTop:"100px", paddingBottom: "100px"}}>
@@ -105,6 +114,7 @@ export default function Component() {
           </Paragraph>
         </div> */}
 
+        <DynamicSubtitle subtitle="¿Cómo hacerlo?" centered={true}/>
         <QuestionCard
             title="Preguntar"
             imageUrl="https://media-public.canva.com/pwM9A/MAFDdwpwM9A/1/tl.png"
@@ -154,7 +164,13 @@ export default function Component() {
 
         <ConversationItem 
             imageSrc="https://media-public.canva.com/aeAkI/MAFXLQaeAkI/1/tl.png" 
-            text=" Evita conversaciones con temas problemáticos, tristes o negativos, que pudiesen alterar al usuario. "
+            text={`Evita conversaciones con temas problemáticos, tristes o negativos, que pudiesen alterar al usuario.
+
+            Evita recostar a tu familiar después de ingerir alimentos, mantenlo siempre entre 30-45 grados (segun indicación medica).
+
+            Evita darle alimentos si no se encuentra completamente despierto.
+            
+            Evita darle alimentos externos a los entregados por el hospital.`}
         />
 
         <NavigationButtons nextHref="/info" previousHref="/"/>
