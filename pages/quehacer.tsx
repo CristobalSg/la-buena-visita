@@ -74,8 +74,9 @@ export default function Component() {
   const additionalImages = [
     "https://media-public.canva.com/IRSUI/MAEEhtIRSUI/1/tl.jpg",
     "https://media-public.canva.com/QVS5o/MAEnWaQVS5o/1/tl.png",
-    "https://media-public.canva.com/pwM9A/MAFDdwpwM9A/1/tl.png",
-    "https://media-public.canva.com/O4lQw/MAFsk-O4lQw/1/tl.png"
+    "https://media-public.canva.com/zM21M/MAELKhzM21M/1/tl.png",
+    "https://media-public.canva.com/O4lQw/MAFsk-O4lQw/1/tl.png",
+
   ];
 
   return (

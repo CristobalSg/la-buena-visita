@@ -23,7 +23,7 @@ const resources = [
   {
     title: 'Estimulación cognitiva',
     imgSrc: 'https://media-public.canva.com/YOF4c/MAGLwaYOF4c/1/tl.png',
-    href: "/"
+    href: "https://www.canva.com/design/DAGU0hq73N0/vZ6V1lVJaCkJ2j9UxyIdaQ/view?utm_content=DAGU0hq73N0&utm_campaign=designshare&utm_medium=link&utm_source=editor"
   },
   {
     title: 'Actividades básicas de la vida diariactividades básicas de la vida diaria',
