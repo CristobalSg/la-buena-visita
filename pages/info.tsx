@@ -26,7 +26,7 @@ const resources = [
     href: "/"
   },
   {
-    title: 'AActividades básicas de la vida diariactividades básicas de la vida diaria',
+    title: 'Actividades básicas de la vida diariactividades básicas de la vida diaria',
     imgSrc: 'https://media-public.canva.com/WTBu0/MAFHpMWTBu0/1/tl.png',
     href: "https://www.canva.com/design/DAGS6e2_NkY/nZe_rUvLnyKBSivrPbWTMQ/view?utm_content=DAGS6e2_NkY&utm_campaign=designshare&utm_medium=link&utm_source=editor"
   },
