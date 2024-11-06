@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
+html {
+  font-size: 16px;
+}
+
+/* Los componentes de antD modifican los estilos basicos */
+.ant-typography,
+.ant-btn,
+.ant-input,
+.ant-select,
+.ant-card,
+.ant-menu {
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 1rem;
+}
+
+body {
+    /* font-size: 1.25em; */
+    margin: 0;
+}
+
+/* Estilos globales o en tu archivo CSS */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  background-color: #fff;
+  /* font-family: 'Montserrat, sans-serif'; */
+}
+
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #006D5B;
+  display: flex;
+  align-items: center;
+}
+
+/* NAV */
+.nav-buttons {
+  display: flex;
+  gap: 10px;
+  /* color: black; */
+}
+
+.menu-button {
+  display: none;
+}
+
+/* INDEX */
+  .img-caplc {
+    height: 400px;
+  }
+.cont-img-home {
+  position: relative;
+}
+
+.cont-style  {
+  margin: 0 40px
+}
+.drawer-link {
+  color: black;
+  font-size: 1.25rem;
+}
+/* Responsive para pantallas pequeñas */
+@media (max-width: 768px) {
+  .cont-style  {
+    margin: 0 20px
+  }
+  .img-caplc {
+    height: 200px;
+  }
+    .header-title {
+        display: none; /* Ocultar en pantallas pequeñas */
+    }
+  .logo {
+    font-size: 1.2em;
+  }
+  .menu-button {
+    display: block;
+  }
+  .nav-buttons {
+    display: none;
+  }
+}
