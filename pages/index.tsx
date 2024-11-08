@@ -49,8 +49,9 @@ const Home: NextPage = () => {
                   type="primary"
                   size="large"
                   style={{
-                    backgroundColor: '#C4B5A6',
+                    backgroundColor: '#006D5B',
                     borderColor: '#C4B5A6',
+                    // color: "#006D5B",
                     borderRadius: '9999px',
                     marginTop: '16px',
                     boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)', // Sombra suave

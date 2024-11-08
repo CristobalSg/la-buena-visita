@@ -86,17 +86,17 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
           <Row>
             <Col xs={24}>
               <Link href="/" passHref>
-                <Button className="drawer-link" type="link" icon={<HomeOutlined />}>INICIO</Button>
+                <Button className="drawer-link" type="link" icon={<HomeOutlined />} onClick={handleDrawerClose}>INICIO</Button>
               </Link>
             </Col>
             <Col xs={24}>
               <Link href="/quehacer" passHref>
-                <Button className="drawer-link" type="link" icon={<InfoCircleOutlined />}>¿QUÉ HACER?</Button>
+                <Button className="drawer-link" type="link" icon={<InfoCircleOutlined />} onClick={handleDrawerClose}>¿QUÉ HACER?</Button>
               </Link>
             </Col>
             <Col xs={24}>
               <Link href="/info" passHref>
-                <Button className="drawer-link" type="link" icon={<InfoCircleOutlined />}>ACTIVIDADES</Button>
+                <Button className="drawer-link" type="link" icon={<InfoCircleOutlined />} onClick={handleDrawerClose}>ACTIVIDADES</Button>
               </Link>
             </Col>
           </Row>
