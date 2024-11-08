@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Layout, Button, Drawer, Row, Col } from 'antd';
 import { HomeOutlined, InfoCircleOutlined, MenuOutlined } from '@ant-design/icons';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const { Header, Content, Footer } = Layout;
 
@@ -12,28 +13,21 @@ type MainLayoutProps = {
 };
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
-  const [selected, setSelected] = useState('home');
-  const [isDrawerVisible, setIsDrawerVisible] = useState(false); // Estado para el Drawer
-  const [isTransitioning, setIsTransitioning] = useState(false);  // Estado para controlar la transición
-
-  const handleSelect = (value: string) => {
-    setIsTransitioning(true);  // Activar transición
-    setIsDrawerVisible(false)
-    setSelected(value);
-  };
+  const pathname = usePathname();
+  const [selected, setSelected] = useState(pathname);
+  const [isDrawerVisible, setIsDrawerVisible] = useState(false); 
+  const [isTransitioning, setIsTransitioning] = useState(false);  
 
   const handleDrawerOpen = () => setIsDrawerVisible(true);
   const handleDrawerClose = () => setIsDrawerVisible(false);
 
-  // UseEffect para manejar la transición
   useEffect(() => {
-    if (isTransitioning) {
-      setTimeout(() => {
-        setIsTransitioning(false);  // Desactivar la transición después de un tiempo
-      }, 290);  // Debe coincidir con la duración de la transición (en milisegundos)
-    }
-  }, [selected, isTransitioning]);
-
+    setSelected(pathname);
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setIsTransitioning(false);  
+    }, 290);
+  }, [pathname]);
 
   return (
     <Layout>
@@ -44,84 +38,86 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
         </div>
 
         <nav className="nav-buttons" style={navStyle}>
-            <Link href="/" passHref>
-              <Button
-                type="link"
-                style={{
-                  fontWeight: selected === 'home' ? 'bold' : 'normal',
-                  textDecoration: selected === 'home' ? 'underline' : 'none',
-                  color: 'black',
-                  fontSize: '1.25em',
-                }}
-                onClick={() => handleSelect('home')}
-              >
-                INICIO
-              </Button>
-            </Link>
-            <Link href="/quehacer" passHref>
-              <Button
-                type="link"
-                style={{
-                  fontWeight: selected === 'quehacer' ? 'bold' : 'normal',
-                  textDecoration: selected === 'quehacer' ? 'underline' : 'none',
-                  color: 'black',
-                  fontSize: '1.25em',
-                }}
-                onClick={() => handleSelect('quehacer')}
-              >
-                ¿QUÉ HACER?
-              </Button>
-            </Link>
-            <Link href="/info" passHref>
-              <Button
-                type="link"
-                style={{
-                  fontWeight: selected === 'info' ? 'bold' : 'normal',
-                  textDecoration: selected === 'info' ? 'underline' : 'none',
-                  color: 'black',
-                  fontSize: '1.25em',
-                }}
-                onClick={() => handleSelect('info')}
-              >
-                ACTIVIDADES
-              </Button>
-            </Link>
-          </nav>
+          <Link href="/" passHref>
+            <Button
+              type="link"
+              style={{
+                fontWeight: selected === '/' ? 'bold' : 'normal',
+                textDecoration: selected === '/' ? 'underline' : 'none',
+                color: 'black',
+                fontSize: '1.25em',
+              }}
+            >
+              INICIO
+            </Button>
+          </Link>
+          <Link href="/quehacer" passHref>
+            <Button
+              type="link"
+              style={{
+                fontWeight: selected === '/quehacer' ? 'bold' : 'normal',
+                textDecoration: selected === '/quehacer' ? 'underline' : 'none',
+                color: 'black',
+                fontSize: '1.25em',
+              }}
+            >
+              ¿QUÉ HACER?
+            </Button>
+          </Link>
+          <Link href="/info" passHref>
+            <Button
+              type="link"
+              style={{
+                fontWeight: selected === '/info' ? 'bold' : 'normal',
+                textDecoration: selected === '/info' ? 'underline' : 'none',
+                color: 'black',
+                fontSize: '1.25em',
+              }}
+            >
+              ACTIVIDADES
+            </Button>
+          </Link>
+        </nav>
 
-        <Button type="text" icon={<MenuOutlined />} className="menu-button" onClick={handleDrawerOpen} /> {/* Menú hamburguesa */}
+        <Button type="text" icon={<MenuOutlined />} className="menu-button" onClick={handleDrawerOpen} />
         
         <Drawer title="LA BUENA VISITA" placement="right" onClose={handleDrawerClose} open={isDrawerVisible}>
           <Row>
             <Col xs={24}>
-              <Link  href="/"passHref><Button className='drawer-link' type="link" icon={<HomeOutlined />} onClick={() => handleSelect('home')}>INICIO</Button></Link>
+              <Link href="/" passHref>
+                <Button className="drawer-link" type="link" icon={<HomeOutlined />}>INICIO</Button>
+              </Link>
             </Col>
             <Col xs={24}>
-              <Link href="/quehacer" passHref><Button className='drawer-link' type="link" icon={<InfoCircleOutlined />} onClick={() => handleSelect('quehacer')}>¿QUÉ HACER?</Button></Link>
+              <Link href="/quehacer" passHref>
+                <Button className="drawer-link" type="link" icon={<InfoCircleOutlined />}>¿QUÉ HACER?</Button>
+              </Link>
             </Col>
             <Col xs={24}>
-              <Link href="/info" passHref><Button className='drawer-link' type="link" icon={<InfoCircleOutlined />} onClick={() => handleSelect('info')}>ACTIVIDADES</Button></Link>
+              <Link href="/info" passHref>
+                <Button className="drawer-link" type="link" icon={<InfoCircleOutlined />}>ACTIVIDADES</Button>
+              </Link>
             </Col>
           </Row>
         </Drawer>
       </Header>
 
-      <Content style={{ ...contentStyle, opacity: isTransitioning ? 0 : 1}}>
-         {selected === 'home' && (
-            <img
-              className="img-caplc"
-              width="100%"
-              height="100%"
-              style={{
-                maxHeight: "100%",
-                objectFit: "cover",
-                // filter: "blur(0.1px)", // Aplica un desenfoque suave de 4px
-              }}
-              src="https://arc-anglerfish-arc2-prod-copesa.s3.amazonaws.com/public/W7NHXNFA2RCNXHZ7MRS2ZTSICE.jpg"
-            />
-          )}
-          <div className="cont-style" style={contentContainerStyle}>
-            {children}
-          </div>
+      <Content style={{ ...contentStyle, opacity: isTransitioning ? 0 : 1 }}>
+        {selected === '/' && (
+          <img
+            className="img-caplc"
+            width="100%"
+            height="100%"
+            style={{
+              maxHeight: "100%",
+              objectFit: "cover",
+            }}
+            src="https://arc-anglerfish-arc2-prod-copesa.s3.amazonaws.com/public/W7NHXNFA2RCNXHZ7MRS2ZTSICE.jpg"
+          />
+        )}
+        <div className="cont-style" style={contentContainerStyle}>
+          {children}
+        </div>
       </Content>
 
       <Footer style={{ textAlign: 'center' }}>
@@ -166,7 +162,6 @@ const logoImageStyle = {
 };
 
 const navStyle = {
-  // display: 'flex',
   gap: '10px',
 };
 
@@ -174,10 +169,9 @@ const contentStyle = {
   minHeight: '100vh',
   background: '#F0F8FF',
   fontSize: '1.25em',
-  transition: 'opacity 0s ease-in-out',  // Agregar transición
+  transition: 'opacity 0s ease-in-out',  
   transitionDuration: '290ms',
   opacity: 1,
-  // padding: "0 40px"
 };
 
 const contentContainerStyle = {
