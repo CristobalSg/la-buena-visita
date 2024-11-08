@@ -12,7 +12,7 @@ type MainLayoutProps = {
 };
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
-  const [selected, setSelected] = useState('');
+  const [selected, setSelected] = useState('home');
   const [isDrawerVisible, setIsDrawerVisible] = useState(false); // Estado para el Drawer
   const [isTransitioning, setIsTransitioning] = useState(false);  // Estado para controlar la transición
 
