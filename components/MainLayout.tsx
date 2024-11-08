@@ -5,6 +5,7 @@ import { Layout, Button, Drawer, Row, Col } from 'antd';
 import { HomeOutlined, InfoCircleOutlined, MenuOutlined } from '@ant-design/icons';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import CustomFooter from './Footer';
 
 const { Header, Content, Footer } = Layout;
 
@@ -120,20 +121,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
         </div>
       </Content>
 
-      <Footer style={{ textAlign: 'center' }}>
-        <Row>
-          <Col xs={12} md={12} sm={12}>
-            <p>Complejo Asistencial Padre Las Casas</p>
-            <p>(CAPLC) {new Date().getFullYear()}</p>
-          </Col>
-          <Col xs={12} md={12} sm={12}>
-            <p style={{ fontWeight: 'bold' }}>Creado por:</p>
-            <p>Krishna Pavez T.</p>
-            <p>Pia Maldonado B.</p>
-            <p>Natalia Fuentealba S.</p>
-          </Col>
-        </Row>
-      </Footer>
+      <CustomFooter />
     </Layout>
   );
 };
