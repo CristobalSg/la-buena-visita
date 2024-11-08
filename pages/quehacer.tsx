@@ -98,6 +98,11 @@ export default function Component() {
         <DynamicSubtitle subtitle="¿Cómo hacerlo?" centered={true}/>
 
         <CardGrid cardData={cardData} />
+        
+        <TwoColumnPhotos photos={[
+          '/images/afi_1.png',
+          '/images/afi_2.png',
+        ]} />
 
         <Divider style={{marginBlock: "4rem"}}></Divider>
 
@@ -105,7 +110,7 @@ export default function Component() {
         <DynamicSubtitle subtitle="Terapia de orientación a la realidad"/>
         <DynamicTitle subtitle="¿Qué es?"
         paragraphText="Son técnicas mediante las cuales la persona tomará conciencia de su situación en el tiempo, espacio 
-            y persona. proporcionando a la persona una mejor comprensión de sí mismo y del mundo que le rodea."/>
+        y persona. proporcionando a la persona una mejor comprensión de sí mismo y del mundo que le rodea."/>
         
         {/* <div className="space-y-1" style={{textAlign: "center", paddingTop:"100px", paddingBottom: "100px"}}>
           <Title level={3} className="font-semibold" style={{fontFamily: 'Montserrat, sans-serif'}}>Terapia de orientación a la realidad</Title>
@@ -113,7 +118,7 @@ export default function Component() {
             Técnicas mediante las cuales la persona tomará conciencia de su situación en el tiempo, espacio 
             y persona. proporcionando a la persona una mejor comprensión de sí mismo y del mundo que le rodea.
           </Paragraph>
-        </div> */}
+          </div> */}
 
         <DynamicSubtitle subtitle="¿Cómo hacerlo?" centered={true}/>
         <QuestionCard
@@ -125,10 +130,6 @@ export default function Component() {
             additionalImages={additionalImages}
         />
         
-        <TwoColumnPhotos photos={[
-          '/images/afi_1.png',
-          '/images/afi_2.png',
-        ]} />
 
         <Divider style={{marginBlock: "4rem"}}></Divider>
 
