@@ -14,13 +14,26 @@ type MainLayoutProps = {
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   const [selected, setSelected] = useState('');
   const [isDrawerVisible, setIsDrawerVisible] = useState(false); // Estado para el Drawer
+  const [isTransitioning, setIsTransitioning] = useState(false);  // Estado para controlar la transición
 
   const handleSelect = (value: string) => {
+    setIsTransitioning(true);  // Activar transición
+    setIsDrawerVisible(false)
     setSelected(value);
   };
 
   const handleDrawerOpen = () => setIsDrawerVisible(true);
   const handleDrawerClose = () => setIsDrawerVisible(false);
+
+  // UseEffect para manejar la transición
+  useEffect(() => {
+    if (isTransitioning) {
+      setTimeout(() => {
+        setIsTransitioning(false);  // Desactivar la transición después de un tiempo
+      }, 290);  // Debe coincidir con la duración de la transición (en milisegundos)
+    }
+  }, [selected, isTransitioning]);
+
 
   return (
     <Layout>
@@ -80,33 +93,35 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
         <Drawer title="LA BUENA VISITA" placement="right" onClose={handleDrawerClose} open={isDrawerVisible}>
           <Row>
             <Col xs={24}>
-              <Link  href="/"passHref><Button className='drawer-link' type="link" icon={<HomeOutlined />} onClick={handleDrawerClose}>INICIO</Button></Link>
+              <Link  href="/"passHref><Button className='drawer-link' type="link" icon={<HomeOutlined />} onClick={() => handleSelect('home')}>INICIO</Button></Link>
             </Col>
             <Col xs={24}>
-              <Link href="/quehacer" passHref><Button className='drawer-link' type="link" icon={<InfoCircleOutlined />} onClick={handleDrawerClose}>¿QUÉ HACER?</Button></Link>
+              <Link href="/quehacer" passHref><Button className='drawer-link' type="link" icon={<InfoCircleOutlined />} onClick={() => handleSelect('quehacer')}>¿QUÉ HACER?</Button></Link>
             </Col>
             <Col xs={24}>
-              <Link href="/info" passHref><Button className='drawer-link' type="link" icon={<InfoCircleOutlined />}onClick={handleDrawerClose}>ACTIVIDADES</Button></Link>
+              <Link href="/info" passHref><Button className='drawer-link' type="link" icon={<InfoCircleOutlined />} onClick={() => handleSelect('info')}>ACTIVIDADES</Button></Link>
             </Col>
           </Row>
         </Drawer>
       </Header>
 
-      <Content style={{ ...contentStyle}}>
-        <img
-          className="img-caplc"
-          width="100%"
-          height="100%"
-          style={{
-            maxHeight: "100%",
-            objectFit: "cover",
-            // filter: "blur(0.1px)", // Aplica un desenfoque suave de 4px
-          }}
-          src="https://arc-anglerfish-arc2-prod-copesa.s3.amazonaws.com/public/W7NHXNFA2RCNXHZ7MRS2ZTSICE.jpg"
-        />
-        <div className="cont-style" style={contentContainerStyle}>
-          {children}
-        </div>
+      <Content style={{ ...contentStyle, opacity: isTransitioning ? 0 : 1}}>
+         {selected === 'home' && (
+            <img
+              className="img-caplc"
+              width="100%"
+              height="100%"
+              style={{
+                maxHeight: "100%",
+                objectFit: "cover",
+                // filter: "blur(0.1px)", // Aplica un desenfoque suave de 4px
+              }}
+              src="https://arc-anglerfish-arc2-prod-copesa.s3.amazonaws.com/public/W7NHXNFA2RCNXHZ7MRS2ZTSICE.jpg"
+            />
+          )}
+          <div className="cont-style" style={contentContainerStyle}>
+            {children}
+          </div>
       </Content>
 
       <Footer style={{ textAlign: 'center' }}>
@@ -159,6 +174,9 @@ const contentStyle = {
   minHeight: '100vh',
   background: '#F0F8FF',
   fontSize: '1.25em',
+  transition: 'opacity 0s ease-in-out',  // Agregar transición
+  transitionDuration: '290ms',
+  opacity: 1,
   // padding: "0 40px"
 };
 
