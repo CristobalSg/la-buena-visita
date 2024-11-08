@@ -70,7 +70,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                 }}
                 onClick={() => handleSelect('info')}
               >
-                INFO
+                ACTIVIDADES
               </Button>
             </Link>
           </nav>
@@ -86,13 +86,24 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
               <Link href="/quehacer" passHref><Button className='drawer-link' type="link" icon={<InfoCircleOutlined />} onClick={handleDrawerClose}>¿QUÉ HACER?</Button></Link>
             </Col>
             <Col xs={24}>
-              <Link href="/info" passHref><Button className='drawer-link' type="link" icon={<InfoCircleOutlined />}onClick={handleDrawerClose}>INFO</Button></Link>
+              <Link href="/info" passHref><Button className='drawer-link' type="link" icon={<InfoCircleOutlined />}onClick={handleDrawerClose}>ACTIVIDADES</Button></Link>
             </Col>
           </Row>
         </Drawer>
       </Header>
 
       <Content style={{ ...contentStyle}}>
+        <img
+          className="img-caplc"
+          width="100%"
+          height="100%"
+          style={{
+            maxHeight: "100%",
+            objectFit: "cover",
+            // filter: "blur(0.1px)", // Aplica un desenfoque suave de 4px
+          }}
+          src="https://arc-anglerfish-arc2-prod-copesa.s3.amazonaws.com/public/W7NHXNFA2RCNXHZ7MRS2ZTSICE.jpg"
+        />
         <div className="cont-style" style={contentContainerStyle}>
           {children}
         </div>

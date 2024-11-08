@@ -8,40 +8,39 @@ const { Paragraph } = Typography;
 const Home: NextPage = () => {
   return (
     <>
-      <Row gutter={[16, 16]}>
-        <Col xs={24} md={16}>
-          <div className="cont-img-home">
-            <img
-              className='img-caplc'
-              width={"100%"}
-              height={"100%"}
-              style={{maxHeight: "100%", objectFit: 'cover' }}
-              src="https://arc-anglerfish-arc2-prod-copesa.s3.amazonaws.com/public/W7NHXNFA2RCNXHZ7MRS2ZTSICE.jpg"
-            />
-          </div>
-        </Col>
-        <Col xs={24} md={8}>
-          <div className="cont-img-home">
-            <Image
-              width={"100%"}
-              height={"100%"}
-              style={{
-                objectFit: 'cover',
-              }}
-              src="/images/logo.png"
-              alt="Manual de la Buena Visita Logo"
-            />
-          </div>
-        </Col>
-      </Row>
+            <div
+        className="cont-img-home"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+           marginTop: "-120px", // Ajusta el valor según lo necesites
+        }}
+      >
+        <Image
+          width={"400px"}
+          height={"100%"}
+          style={{
+            objectFit: "cover",
+            filter: "drop-shadow(1px 1px 6px rgba(0, 0, 0, 0.3))"
+          }}
+          src="/images/logo-manual-buean-visita.png"
+          alt="Manual de la Buena Visita Logo"
+        />
+      </div>
+        
       <Row gutter={[16, 16]} style={{ marginTop: '24px' }}>
         <Col xs={24} md={16}>
           <Card>
-            <Paragraph style={{ fontSize: '1.25em', fontFamily: 'Montserrat, sans-serif'}}>
+            {/* <Paragraph style={{ fontSize: '1.25em', fontFamily: 'Montserrat, sans-serif'}}>
               Esta página está creada con la finalidad de entregar información que guie a los 
               familiares de los pacientes hospitalizados, en relación a como realizar, una  visita
                enriquecedora para el proceso de rehabilitación, y así mismo alcanzar un optimo 
                potencial en las habilidades necesarias para participar de las actividades de la vida diaria. 
+            </Paragraph> */}
+            <Paragraph style={{ fontSize: '1.25em', fontFamily: 'Montserrat, sans-serif'}}>
+              Esta página brinda información para que familiares de pacientes hospitalizados puedan 
+              realizar visitas que favorezcan su rehabilitación y apoyen el desarrollo de habilidades 
+              para la vida diaria. 
             </Paragraph>
             {/* Contenedor flexible para el botón */}
             <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
@@ -53,12 +52,14 @@ const Home: NextPage = () => {
                     backgroundColor: '#C4B5A6',
                     borderColor: '#C4B5A6',
                     borderRadius: '9999px',
-                    marginTop: '16px'
+                    marginTop: '16px',
+                    boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)', // Sombra suave
                   }}
                   onClick={() => console.log('Navegando a la siguiente página')}
                 >
                   SIGUIENTE
                 </Button>
+
               </Link>
             </div>
           </Card>

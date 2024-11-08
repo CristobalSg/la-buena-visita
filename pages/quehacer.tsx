@@ -7,6 +7,7 @@ import ConversationItem from '../components/ConversationItem';
 import CardGrid from '../components/CardGrid';
 import NavigationButtons from "@/components/NavigationButtons";
 import DynamicSubtitle from "@/components/DynamicSubtitle";
+import TwoColumnPhotos from "@/components/TwoColumnPhotos";
 
 const { Title, Text, Paragraph } = Typography;
 
@@ -86,8 +87,8 @@ export default function Component() {
             mainTitle="¿Qué hacer con tu familiar durante la visita en el hospital?"
         />
 
-        <DynamicSubtitle subtitle="Se recomienda hacer:" />
-        <DynamicSubtitle subtitle="Un manejo ambiental."/>
+        <DynamicSubtitle subtitle="Se recomienda hacer un manejo ambiental." centered={true}/>
+        {/* <DynamicSubtitle subtitle="Un manejo ambiental." centered={true}/> */}
         <DynamicTitle
             subtitle="¿Qué es el manejo ambiental?"
             paragraphText="El manejo ambiental es un conjunto de modificaciones en el ambiente en el cual se encuentra el paciente, lo cual ayudará a que su nivel de conciencia sea optimo, además,  ayudará al usuario a orientarse por ejemplo, en relación a si es de día o de noche."
@@ -123,6 +124,11 @@ export default function Component() {
             additionalMessage="Puedes apoyar este proceso con ayuda de fotos, calendario o algún otro objeto que sea familiar al usuario"
             additionalImages={additionalImages}
         />
+        
+        <TwoColumnPhotos photos={[
+          '/images/afi_1.png',
+          '/images/afi_2.png',
+        ]} />
 
         <Divider style={{marginBlock: "4rem"}}></Divider>
 
