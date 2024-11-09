@@ -37,7 +37,7 @@ const Home: NextPage = () => {
                enriquecedora para el proceso de rehabilitación, y así mismo alcanzar un optimo 
                potencial en las habilidades necesarias para participar de las actividades de la vida diaria. 
             </Paragraph> */}
-            <Paragraph style={{ fontSize: '1.25em', fontFamily: 'Montserrat, sans-serif'}}>
+            <Paragraph style={{ fontSize: '1.25em', fontFamily: 'Montserrat, sans-serif', textAlign: 'justify'}}>
               Esta página brinda información para que familiares de pacientes hospitalizados puedan 
               realizar visitas que favorezcan su rehabilitación y apoyen el desarrollo de habilidades 
               para la vida diaria. 
