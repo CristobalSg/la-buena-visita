@@ -54,13 +54,18 @@ const CustomFooter: React.FC = () => {
           <p>Krishna Pavez T.</p>
           <p>Pia Maldonado B.</p>
           <p>Natalia Fuentealba S.</p>
-          <p>Terapeutas Ocupacional</p>
+          <p>Internas de Terapia Ocupacional</p>
+        </div>
+        <Divider style={{marginBlock: "1rem"}}></Divider>
+        <div style={style_rightColumn}>
+          <p style={style_boldText}>Revisado por:</p>
+          <p>servicio de medicina física y rehabilitación</p>
         </div>
         <Divider style={{marginBlock: "1rem"}}></Divider>
         <div style={style_rightColumn}>
           <p style={style_boldText}>Desarrollado por:</p>
           <p>Cristóbal Sandoval G.</p>
-          <p>Ingeniero Civil en Informática</p>
+          <p>Estudiante de Ingenieria Civil en Informática</p>
         </div>
         </Col>
       </Row>

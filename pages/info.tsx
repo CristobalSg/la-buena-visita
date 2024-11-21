@@ -16,6 +16,11 @@ const cardStyle = (index: number, isHovered: boolean) => ({
 // Datos para los recursos adicionales
 const resources = [
   {
+    title: 'Estimulación polisensorial',
+    imgSrc: 'https://media-public.canva.com/oIBOU/MAGMeooIBOU/1/tl.png',
+    href: "https://www.canva.com/design/DAGUnM9at5g/iuFgUrjFqPzUHWT-ngcsKA/view?utm_content=DAGUnM9at5g&utm_campaign=designshare&utm_medium=link&utm_source=editor"
+  },
+  {
     title: 'Ejercicios de movilidad',
     imgSrc: 'https://media-public.canva.com/qaBcU/MAF-OUqaBcU/1/tl.png',
     href: "https://www.canva.com/design/DAGVEcaSHC8/mv9ByQrPfmIw6_gdedslhA/view?utm_content=DAGVEcaSHC8&utm_campaign=designshare&utm_medium=link&utm_source=editor#1"
@@ -29,11 +34,6 @@ const resources = [
     title: 'Actividades básicas de la vida diariactividades básicas de la vida diaria',
     imgSrc: 'https://media-public.canva.com/WTBu0/MAFHpMWTBu0/1/tl.png',
     href: "https://www.canva.com/design/DAGS6e2_NkY/nZe_rUvLnyKBSivrPbWTMQ/view?utm_content=DAGS6e2_NkY&utm_campaign=designshare&utm_medium=link&utm_source=editor"
-  },
-  {
-    title: 'Estimulación polisensorial',
-    imgSrc: 'https://media-public.canva.com/oIBOU/MAGMeooIBOU/1/tl.png',
-    href: "https://www.canva.com/design/DAGUnM9at5g/iuFgUrjFqPzUHWT-ngcsKA/view?utm_content=DAGUnM9at5g&utm_campaign=designshare&utm_medium=link&utm_source=editor"
   },
 ];
 
